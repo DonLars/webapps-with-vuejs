@@ -26,7 +26,7 @@
     <main>
       <div class="inside">
         <div class="card" id="app">
-          <h2>Welcome back, <strong>{{ userName }}</strong>!</h2>
+          <h2>Welcome back, <strong v-highlight>{{ userName }}</strong>!</h2>
           <p>
             You logged in on: {{date}}
             <br />
@@ -46,6 +46,16 @@
             userName: "John Doe",
             date: currentDateDE,
           };
+        },
+        directives: {
+          highlight: {
+            mounted(el) {
+              el.style.border = "2px solid dodgerblue";
+              el.style.backgroundColor = "hotpink";
+              el.style.padding = "0.1rem 0.5rem";
+              el.style.margin = "0.25rem 0.5rem";
+            },
+          },
         },
       }).mount("#app");
 
