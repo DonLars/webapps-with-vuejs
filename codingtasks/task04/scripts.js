@@ -2,6 +2,16 @@ const app = Vue.createApp({
   data() {
     return {
       activeLetter: "A",
+    };
+  },
+});
+
+app.mount("#app");
+
+/*const app = Vue.createApp({
+  data() {
+    return {
+      activeLetter: "A",
       opacityA: true,
       opacityB: false,
       opacityC: false,
@@ -33,3 +43,4 @@ const app = Vue.createApp({
 });
 
 app.mount("#app");
+*/
