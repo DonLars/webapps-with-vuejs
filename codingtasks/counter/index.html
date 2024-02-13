@@ -8,19 +8,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!--
+
+ Use style binding to increase the background of the main area.
+Tipp: It's realized with css custom properties
+
+    -->
     <div id="app" class="inside">
       <header>
         <div>
           <h1>Counter</h1>
           <small>(click the white area)</small>
         </div>
-        <button>Reset</button>
+        <button @click="count = 0;">Reset</button>
       </header>
-      <main>
+      <main @click="count++" :class="{main}">
         <label id="counter">{{ count }}</label>
       </main>
     </div>
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
