@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!--
-
- Use style binding to increase the background of the main area.
-Tipp: It's realized with css custom properties
-
-    -->
     <div id="app" class="inside">
       <header>
         <div>
@@ -22,7 +16,7 @@ Tipp: It's realized with css custom properties
         </div>
         <button @click="count = 0;">Reset</button>
       </header>
-      <main @click="count++" :class="{main}">
+      <main @click="count++" :style="`--counter: ${count}%`" :class="{main}">
         <label id="counter">{{ count }}</label>
       </main>
     </div>
