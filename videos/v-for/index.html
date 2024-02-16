@@ -9,8 +9,12 @@
     <div id="app">
       <h1>Fruits</h1>
       <ul>
-        <li v-for="(emojiValue, nameKey) in fruits" :key="nameKey">
-          {{emojiValue}} - <strong>{{nameKey}}</strong>
+        <!--         <li v-for="{ name, emoji } in fruits" :key="fruit.id">
+          {{ emoji }} - <strong>{{ name }}</strong>
+        </li>
+ -->
+        <li v-for="fruit in fruits" :key="fruit.id">
+          {{ fruit.emoji }} - <strong>{{ fruit.name }}</strong>
         </li>
       </ul>
     </div>
@@ -21,14 +25,38 @@
     Vue.createApp({
       data() {
         return {
-          fruits: {
-            Apple: "🍏",
-            Banana: "🍌",
-            Strawberry: "🍓",
-            Melon: "🍉",
-            Ananas: "🍍",
-            Mango: "🥭",
-          },
+          fruits: [
+            {
+              id: 11,
+              name: "Apple",
+              emoji: "🍏",
+            },
+            {
+              id: 12,
+              name: "Banana",
+              emoji: "🍌",
+            },
+            {
+              id: 13,
+              name: "Strawberry",
+              emoji: "🍓",
+            },
+            {
+              id: 14,
+              name: "Melon",
+              emoji: "🍉",
+            },
+            {
+              id: 15,
+              name: "Ananas",
+              emoji: "🍍",
+            },
+            {
+              id: 16,
+              name: "Mango",
+              emoji: "🥭",
+            },
+          ],
         };
       },
     }).mount("#app");
