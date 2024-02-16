@@ -36,11 +36,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="book in books" :key="book.id">
+            <tr v-for="book in books" :key="book.isbn">
               <td v-for="value in Object.values(book)" :key="value">
                 {{ value }}
               </td>
             </tr>
+
+            <!-- Codingbootcamp solution :
+                <tr v-for="{ title, isbn, author, publisher, price, numPages } of books" :key="isbn">
+                <td v-text="title">
+                <td v-text="isbn">
+                <td v-text="author">
+                <td v-text="publisher">
+                <td v-text="price">
+                <td v-text="numPages">
+              </tr> -->
           </tbody>
         </table>
       </div>
