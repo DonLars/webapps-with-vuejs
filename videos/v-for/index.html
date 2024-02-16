@@ -16,6 +16,8 @@
         <li v-for="fruit in fruits" :key="fruit.id">
           {{ fruit.emoji }} - <strong>{{ fruit.name }}</strong>
         </li>
+
+        <div v-for="n in 10" :key="n">{{ n }}</div>
       </ul>
     </div>
   </body>
