@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Todays Meals</h1>
+      <div v-for="{diet, emojis, meals} in todaysMealsByDient" :key="diet">
+        <h2>{{diet}} {{emojis}}</h2>
+        <ul>
+          <li v-for="meal of meals" :key="meal">{{ meal }}</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          todaysMealsByDient: [
+            {
+              diet: "Meat",
+              emojis: "🥩",
+              meals: [
+                "Garlic butter Steak Bites",
+                "Swedish Meatballs",
+                "Lemon Baked Chicken",
+                "Beef Stroganoff",
+              ],
+            },
+            {
+              diet: "Vegetarian",
+              emojis: "🌱🥚🥛🧀",
+              meals: [
+                "Double cheese & spring vegetable tart",
+                "Bean & halloumi stew",
+                "Creamy broccoli gnocci",
+                "Double bean & roasted pepper chilli",
+              ],
+            },
+            {
+              diet: "Vegan",
+              emojis: "🌱",
+              meals: [
+                "Chilli sin carne",
+                "Lenti Bolognese",
+                "Black Bean burger",
+                "Chickpea curry jackfruit potatoes",
+              ],
+            },
+          ],
+        };
+      },
+    }).mount("#app");
+  </script>
+</html>
