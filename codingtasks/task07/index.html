@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+    id: "1001606140805",
+          title: "Java Web Scraping Handbook",
+          subtitle: "Learn advanced Web Scraping techniques",
+          isbn: "1001606140805",
+          abstract:
+            "Web scraping or crawling is the art of fetching data from a third party website by downloading and parsing the HTML code to extract the data you want. It can be hard. From bad HTML code to heavy Javascript use and anti-bot techniques, it is often tricky. Lots of companies use it to obtain knowledge ...",
+          author: "Kevin Sahin",
+          publisher: "Leanpub",
+          price: "$0.00",
+          numPages: 115,
+          isBookmarked: true,
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task - Attribute Binding</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="header__section">
+        <p class="header__task-name">💻 Coding Task</p>
+        <p class="header__bootcamp-info-wrapper">
+          <span class="header__bootcamp-modul"
+            ><strong>Modul:</strong> Web Apps with Vue.js - Part 1</span
+          >
+          <a
+            href="https://www.coding-bootcamps.eu/"
+            class="header__bootcamp-link"
+            >coding-bootcamps.eu</a
+          >
+        </p>
+      </section>
+    </header>
+    <main>
+      <div id="app" class="inside">
+        <h1>20% off on all books from O'Reilly Media</h1>
+        <table>
+          <thead>
+            <tr>
+              <th v-for="columnName in dynamicBookList" :key="columnName">
+                {{ columnName }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="{ title, isbn, author, publisher, price, numPages } of filteredBooks"
+              :key="isbn"
+            >
+              <td>{{ title }}</td>
+              <td>{{ isbn }}</td>
+              <td>{{ author }}</td>
+              <td>{{ publisher }}</td>
+              <td>
+                <span class="strike">{{ price }}</span>
+                $3.75
+              </td>
+              <td>{{ numPages }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
