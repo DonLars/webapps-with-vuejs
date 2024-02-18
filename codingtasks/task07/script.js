@@ -565,4 +565,14 @@ Vue.createApp({
       return this.books.filter((book) => book.publisher === currentPublisher);
     },
   },
+  methods: {
+    discountedPrice(price, discoutPercent) {
+      const priceWithoutCurrency = price.replace("$", "");
+      const priceAmount =
+        (priceWithoutCurrency * parseFloat(discoutPercent)) / 100;
+      const priceDiscounted = (priceWithoutCurrency - priceAmount).toFixed(2);
+      result = "$" + priceDiscounted;
+      return result;
+    },
+  },
 }).mount("#app");
