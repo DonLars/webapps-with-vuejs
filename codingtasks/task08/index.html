@@ -26,10 +26,12 @@
     <main>
       <div id="app" class="inside">
         <h1>Task 1</h1>
-        <div id="area">
+        <div id="area" v-on="mousePosition">
           <span>x: {{ x }}, y: {{ y }}</span>
-          <div class="dead-spot">DEAD SPOT</div>
+          <div class="dead-spot" @mousemove.stop></a>
+            DEAD SPOT</div>
         </div>
+
         <h1>Task 2</h1>
         <ul class="fruit-basket">
           <li
@@ -38,7 +40,7 @@
             class="fruit-basket--item"
           >
             <span>{{ fruit }}</span>
-            <button>Remove</button>
+            <button @click="deleteFruit">Remove</button>
           </li>
         </ul>
       </div>
