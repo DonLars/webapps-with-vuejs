@@ -13,6 +13,9 @@ Vue.createApp({
       document.title = this.text;
       document.body.classList.add(this.onClassName);
 
+      document.title = this.text;
+      document.body.classList.add(this.onClassName);
+
       const background = document.querySelector("body");
       const btn = document.querySelector("button");
 
@@ -21,12 +24,12 @@ Vue.createApp({
           background.classList.toggle("body-dark");
           btn.classList.add("dark");
           btn.innerText = "Turn the lights on!";
-          //document.title = "Good Night";
+          document.title = "Good Night";
         } else {
           background.classList.toggle("body-dark");
           btn.classList.remove("dark");
           btn.innerText = "Turn the lights off!";
-          //document.title = "Good Morning";
+          document.title = "Good Morning";
         }
       });
     },
