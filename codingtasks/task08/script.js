@@ -23,15 +23,10 @@ Vue.createApp({
     },
   },
   methods: {
-    console(event) {
-      //console.log(event);
-    },
-
     getPosition(event) {
       this.x = event.offsetX;
       this.y = event.offsetY;
     },
-
     deleteFruit(event) {
       event.target.parentElement.remove();
     },
