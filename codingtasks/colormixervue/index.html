@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Mixer</title>
+    <title>Color Mixer Vue</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body id="app">
     <header>
       <form id="form">
         <label for="red"
@@ -19,8 +19,11 @@
             step="1"
             min="0"
             max="255"
-            value="50"
-        /></label>
+            value="{{red}}"
+            v-model="red"
+          />
+        </label>
+
         <label for="green"
           ><span>green</span>
           <input
@@ -31,7 +34,8 @@
             step="1"
             min="0"
             max="255"
-            value="100"
+            value="{{green}}"
+            v-model="green"
         /></label>
         <label for="blue"
           ><span>blue</span>
@@ -43,14 +47,15 @@
             step="1"
             min="0"
             max="255"
-            value="150"
+            value="{{blue}}"
+            v-model="blue"
         /></label>
       </form>
-      <section id="rgb">
-        <!-- dynamic -->
-      </section>
+      <section id="rgb">rgb({{red}},{{green}}, {{blue}})</section>
     </header>
-    <main id="main"><!-- dynamic --></main>
+    <main id="main" :style="{backgroundColor: rgb}"></main>
+
+    <script src="https://unpkg.com/vue@latest"></script>
     <script src="script.js"></script>
   </body>
 </html>
