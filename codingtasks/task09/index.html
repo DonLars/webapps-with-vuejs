@@ -6,8 +6,8 @@
     <title>Light Switch with VUE</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <main id="app">
+  <body id="app">
+    <main>
       <button @click="switchOnOff" :class="{ dark: isDarkMode }">
         {{ switchText }}
       </button>

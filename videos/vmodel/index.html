@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V Model</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .user-card {
+        background-color: #6a1cc3;
+        border-radius: 20px;
+        width: 300px;
+        height: 350px;
+        text-align: center;
+        padding: 10px 0px;
+        box-sizing: border-box;
+        color: #fff;
+        border: 2px solid #2e0063;
+      }
+
+      .user-card__img {
+        border-radius: 50%;
+        height: auto;
+        width: 50%;
+        border: 5px solid #2e0063;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .user-card__data {
+        background-color: #fff;
+        padding: 10px 20px;
+        margin-top: 20px;
+        color: #2e0063;
+      }
+
+      .user-card__form {
+        padding: 20px;
+      }
+
+      .user-card__form label {
+        display: block;
+      }
+
+      .user-card__form input,
+      .user-card__form select {
+        display: block;
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        width: 230px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="user-card">
+        <figure class="user-card__figure">
+          <img class="user-card__img" :src="image" alt="Hard to describe" />
+          <caption>
+            <h2 class="user-card__hl">Attendee Pass</h2>
+            <p>Coding Bootcamps Europe</p>
+          </caption>
+        </figure>
+        <div class="user-card__data">
+          <h2>{{ displayName }}</h2>
+          <p><strong>Class:</strong> {{ displayClass }}</p>
+        </div>
+      </div>
+      <form class="user-card__form">
+        <label for="person-name">Name</label>
+        <input
+          id="person-name"
+          name="person-name"
+          v-model="personName"
+          type="text"
+        />
+
+        <label for="class">Class</label>
+        <select id="class" v-model="selectedClass">
+          <option
+            v-for="classItem in classes"
+            :key="classItem.value"
+            :value="classItem"
+          >
+            {{ classItem.text }}
+          </option>
+        </select>
+      </form>
+    </div>
+  </body>
+</html>
+<script src="https://unpkg.com/vue@latest"></script>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        image:
+          "https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/1327/original/Coding_Bootcamps_Europe_logo.png",
+        personName: "",
+        selectedClass: null,
+        classes: [
+          {
+            value: "",
+            text: "Please choose a class",
+          },
+          {
+            value: "2021-nov",
+            text: "2021 - November",
+          },
+          {
+            value: "2021-dez",
+            text: "2021 - December",
+          },
+          {
+            value: "2022-jan",
+            text: "2022 - January",
+          },
+        ],
+      };
+    },
+    computed: {
+      displayName() {
+        return this.personName.length > 0 ? this.personName : "John Doe";
+      },
+      displayClass() {
+        return this.selectedClass.value === "" ? "-" : this.selectedClass.text;
+      },
+    },
+    created() {
+      this.selectedClass = this.classes[0];
+    },
+  }).mount("#app");
+</script>
