@@ -1,19 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <layout-header />
+  <book-list />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import LayoutHeader from "./components/LayoutHeader.vue";
+import BookList from "./components/BookList.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    LayoutHeader,
+    BookList,
   },
 };
 </script>
 
 <style>
-@import url("./assets/reset.css");
+@import url("./assets/global.css");
 </style>

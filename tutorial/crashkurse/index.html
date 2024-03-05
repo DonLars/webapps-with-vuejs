@@ -16,21 +16,55 @@
       <p class="ok" v-else>Wert ist in Ordnung</p>
       <input type="text" name="" v-model="message" />
       <p>{{message}}</p>
+
+      <a :href="link">Google</a>
+      <ul>
+        <li
+          v-for="fruit in shoppinglist"
+          :class="{warning: fruit.sale, ok: !fruit.sale}"
+        >
+          {{fruit.item}} für {{fruit.preis}} €
+        </li>
+      </ul>
+      <h3>Only Sale</h3>
+      <ul>
+        <li v-for="fruit in onlySale">{{fruit.item}} für {{fruit.preis}} €</li>
+      </ul>
+
+      <h3>Filtered by Range</h3>
+      <input type="range" v-model="range" min="0" max="700" />
+      <p>{{range}}</p>
+      <ul>
+        <li v-for="fruit in filterValues">
+          {{fruit.item}} für {{fruit.preis}} €
+        </li>
+      </ul>
+      <btn-counter desc="Klick mich!"></btn-counter>
+      <btn-counter desc="Click me!"></btn-counter>
     </main>
   </body>
 </html>
 <script src="https://unpkg.com/vue@latest"></script>
 <script>
-  Vue.createApp({
+  const app = Vue.createApp({
     data: function () {
       return {
         message: "",
+        link: "https://google.de",
         hello: "Hello World",
+        range: 150,
         counter: 0,
+        shoppinglist: [
+          { item: "Apfel", preis: 100, sale: true },
+          { item: "Banane", preis: 150, sale: false },
+          { item: "Kiwi", preis: 200, sale: true },
+          { item: "Mango", preis: 350, sale: true },
+          { item: "Pfirsich", preis: 250, sale: true },
+        ],
       };
     },
     methods: {
-      add: function () {
+      add() {
         if (this.counter > 3) {
           this.counter = this.counter * 3;
         } else {
@@ -38,7 +72,35 @@
         }
       },
     },
-  }).mount("#app");
+    computed: {
+      onlySale: function () {
+        return this.shoppinglist.filter((product) => product.sale);
+      },
+      filterValues: function () {
+        return this.shoppinglist.filter(
+          (product) => product.preis > this.range
+        );
+      },
+    },
+  });
+
+  app.component("btn-counter", {
+    props: ["desc"],
+    data: function () {
+      return {
+        counter: 0,
+      };
+    },
+    methods: {
+      countUp: function () {
+        this.counter++;
+      },
+    },
+    template: `<button class="button" @click="countUp">{{desc}}</button>
+              <p>{{counter}}</p>`,
+  });
+
+  app.mount("#app");
 </script>
 
 <style>
