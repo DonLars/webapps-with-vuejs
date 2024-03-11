@@ -1,4 +1,4 @@
-# neues_projekt
+# my-second-vue-project
 
 ## Project setup
 ```
