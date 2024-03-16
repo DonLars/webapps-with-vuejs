@@ -9,12 +9,12 @@ export default {
       type: String,
       required: true,
     },
-  },
-  variant: {
-    type: String,
-    default: "primary",
-    validator(propValue) {
-      return ["primary", "secondary"].includes(propValue);
+    variant: {
+      type: String,
+      default: "primary",
+      validator(propValue) {
+        return ["primary", "secondary"].includes(propValue);
+      },
     },
   },
   computed: {
