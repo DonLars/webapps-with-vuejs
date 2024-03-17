@@ -1,9 +1,10 @@
 <template>
-  <button :class="styling">{{ text }}</button>
+  <button :class="styling" @click="$emit('btn-clicked')">{{ text }}</button>
 </template>
 
 <script>
 export default {
+  emits: ["btn-clicked"],
   props: {
     text: {
       type: String,
@@ -31,6 +32,8 @@ export default {
   border-radius: 3px;
   padding: 5px;
   cursor: pointer;
+  width: 100%;
+  display: block;
 }
 
 .btn--primary {

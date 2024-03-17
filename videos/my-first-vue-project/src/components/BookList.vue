@@ -6,7 +6,7 @@
         <tr>
           <th class="table-item__table-head-name">Name</th>
           <th class="table-item__table-head--isbn">ISBN</th>
-          <th class="table-item__table-head--actions">Action</th>
+          <th class="table-item__table-head--action">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
@@ -15,18 +15,10 @@
           :key="book.isbn"
           :title="book.title"
           :isbn="book.isbn"
+          :isBookmarked="book?.isBookmarked"
+          @bookmark-clicked="handleBookmarkClick"
           class="table-item__table-row"
         />
-
-        <!--<tr
-            v-for="book in books"
-            :key="book.isbn"
-            class="table-item__table-row"
-          >
-            <td>{{ book.title }}</td>
-            <td>{{ book.isbn }}</td>
-            <td>{{ book.action }}</td>
-          </tr>-->
       </tbody>
     </table>
   </section>
@@ -77,6 +69,15 @@ export default {
       ],
     };
   },
+  methods: {
+    handleBookmarkClick(isbn) {
+      const currentBookIndex = this.books.findIndex(
+        (book) => book.isbn === isbn
+      );
+      const currentBook = this.books[currentBookIndex];
+      currentBook.isBookmarked = !currentBook.isBookmarked ? true : false;
+    },
+  },
 };
 </script>
 
@@ -89,13 +90,13 @@ export default {
   width: 100%;
 }
 .table-item__table-head-name {
-  width: 65%;
+  width: 60%;
 }
 .table-item__table-head-isbn {
   width: 20%;
 }
 .table-item__table-head-actions {
-  width: 15%;
+  width: 20%;
 }
 .table-item__table-row button {
   opacity: 0;
@@ -105,9 +106,6 @@ export default {
   border-radius: 5px;
 }
 
-.table-item__table-row:hover button {
-  opacity: 1;
-}
 .table-item__table thead tr {
   background-color: var(--primary);
   color: #ffffff;
