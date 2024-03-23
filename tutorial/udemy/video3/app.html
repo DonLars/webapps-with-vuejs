@@ -1,0 +1,13 @@
+<div id="app">
+  <h1>{{ title }}</h1>
+  <h2>{{ upperCaseTitle }}</h2>
+  <input v-model="title" />
+  <button v-on:click="resetInput">zurücksetzen</button>
+  <div>
+    <small>{{ unsavedChangesCounter }} ungespeicherte Änderungen </small><br />
+
+    <small style="color: red" v-if="unsavedChangesCounter > 10"
+      >Bitte dringend zwischenspeichern!</small
+    >
+  </div>
+</div>
