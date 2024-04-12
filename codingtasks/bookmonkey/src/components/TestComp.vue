@@ -1,10 +1,10 @@
 <template>
   <h2>Das ist eine Test Komponente</h2>
-  <h3 :class="cssTypeClass">{{ headline }}</h3>
+  <h3 :class="cssTypeClass">{{ slotname }}</h3>
   <button :click="$emit('your-event-name', 'hello')">Feuer frei!</button>
   <slot>Submit</slot>
   <slot name="header">
-    <h2>{{ headline }}</h2>
+    <h2>{{ slotname }}</h2>
   </slot>
 </template>
 

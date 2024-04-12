@@ -1,8 +1,4 @@
 <template>
-  <HelloWorld msg="Welcome to our TrackStack 😉" />
-  <TestComp :headline="headline" :your-event-name="doSomething" type="green"
-    ><p><span>Some</span> text</p></TestComp
-  >
   <BaseList :headline="fruitList.headline" :list-items="fruitList.data">
     <template v-slot:header
       ><h5>{{ fruitList.headline }}</h5></template
@@ -25,8 +21,6 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-import TestComp from "@/components/TestComp.vue";
 import BaseList from "@/components/BaseList.vue";
 
 export default {
@@ -70,8 +64,6 @@ export default {
     };
   },
   components: {
-    HelloWorld,
-    TestComp,
     BaseList,
   },
   async created() {

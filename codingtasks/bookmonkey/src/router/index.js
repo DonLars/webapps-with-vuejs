@@ -26,6 +26,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
+  {
+    path: "/imprint",
+    name: "imprint",
+    component: () =>
+      import(/* webpackChunkName: "imprint" */ "../views/ImprintView.vue"),
+  },
 ];
 
 const router = createRouter({
