@@ -1,6 +1,9 @@
 <script setup>
 import { ref, reactive, computed, watch } from "vue";
 
+import { nameStore } from "../../../app/store/store";
+const store = nameStore();
+
 let x = ref(10);
 let string = ref("Hallo");
 const state = reactive({
@@ -40,6 +43,8 @@ watch(
 <template>
   <div>
     <h2>Hallo Welt2</h2>
+
+    <p>{{ store.age }}</p>
     <button v-on:click="decrease(2)">Update --</button>
     <p>{{ x }}</p>
     <button v-on:click="increase(4)">Update ++</button>

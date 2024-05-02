@@ -10,7 +10,11 @@ import HelloWorld from "./components/HelloWorld.vue";
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
     </ul>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <KeepAlive>
+        <component :is="Component"></component>
+      </KeepAlive>
+    </router-view>
   </div>
 </template>
 
